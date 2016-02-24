@@ -95,8 +95,9 @@ public class endToEndTestCases {
 		String conversionPayMoney = driver.findElement(By.xpath("//*[@id='buyMyCurrencyCost']")).getText();
 		
 		float buyingMoney = Float.parseFloat(driver.findElement(By.xpath("//*[@id='base_amount_input']")).getAttribute("value"));
+		float buyingAvgPay = Float.parseFloat(driver.findElement(By.xpath("//*[@id='bidAskAskAvg']")).getText());
 		String amountGet = "you get "+String.format("%.5f", buyingMoney)+" "+opCurrency;
-		String amountPaying = "you pay "+String.format("%.5f", buyingMoney)+" "+opCurrency;
+		String amountPaying = "you pay "+String.format("%.5f", buyingAvgPay)+" "+opCurrency;
 		
 		
 		Assert.assertEquals(convertionGetMoney, amountGet);

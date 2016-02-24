@@ -5,6 +5,7 @@ import org.testng.AssertJUnit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.*;
 import org.testng.*;
@@ -75,8 +76,8 @@ public class endToEndTestCases {
 	@Test(priority = 5)
 	public void verifyLowerRateDetailPanel(){
 		// verify head line
-		String ipCurrency = driver.findElement(By.xpath("//*[@id='quote_currency_code']")).getText();
-		String opCurrency = driver.findElement(By.xpath("//*[@id='base_currency_code']")).getText();
+		String ipCurrency = Util.getSelectedCurrency();
+		String opCurrency = Util.getOutputCurrency();
 		String headLine = ipCurrency+"/"+opCurrency+" Details";
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='infoDetails']")).getText(), headLine);
@@ -119,8 +120,32 @@ public class endToEndTestCases {
 		Assert.assertEquals(buyingOP, buyingTagLine);
 		Assert.assertEquals(convertionGetMoney, amountGet);
 		Assert.assertEquals(conversionPayMoney, amountPaying);
-		
 	}
+	
+	@Test(priority = 6)
+	public void checkCurrencyChart(){
+		
+		// verify todays date on chart
+			//WebElement currencyChart = driver.findElement(By.xpath("//*[@id='currency_chart_canvas']"));
+			//WebElement chartHeaderDate = currencyChart.findElement(By.className("flotr-mouse-value"));
+			//Assert.assertEquals(chartHeaderDate, Util.getCurrentDate("MMM dd, yyyy"));
+		
+		// verify Graph default condition 
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='range30']")).isSelected(), true);
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='range60']")).isSelected(), false);
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='range90']")).isSelected(), false);
+		
+		// verify chart default dates on x axis
+		List<WebElement> chartDates = driver.findElement(By.xpath("//*[@class='flotr-labels']")).findElements((By.className("flotr-grid-label")));
+		int chartIntervalSize = 0, i = 0, days = 30;
+		while(chartIntervalSize != 4){
+			Assert.assertEquals((chartDates.get(i).getText()).replace("\n", " "), Util.getPreviousDate(days));
+			days -= 10;
+			chartIntervalSize++;
+			i++;
+		}
+	}
+	
 	
 
 	@AfterTest

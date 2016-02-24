@@ -6,8 +6,12 @@
       <class name="currencyConvertor.endToEndTestCases">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="verifyDefaultStateUpperPanel"/>
+          <include name="closeBrowser"/>
+          <include name="verifyUpperRightPanel"/>
+          <include name="verifyUpperBottonPanel"/>
           <include name="verifyTitleName"/>
+          <include name="verifyUpperLeftPanel"/>
+          <include name="verifyLowerRateDetailPanel"/>
         </methods>
       </class> <!-- currencyConvertor.endToEndTestCases -->
     </classes>

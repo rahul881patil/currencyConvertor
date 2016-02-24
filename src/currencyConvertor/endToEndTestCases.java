@@ -74,6 +74,7 @@ public class endToEndTestCases {
 	
 	@Test(priority = 5)
 	public void verifyLowerRateDetailPanel(){
+		// verify head line
 		String ipCurrency = driver.findElement(By.xpath("//*[@id='quote_currency_code']")).getText();
 		String opCurrency = driver.findElement(By.xpath("//*[@id='base_currency_code']")).getText();
 		String headLine = ipCurrency+"/"+opCurrency+" Details";
@@ -81,16 +82,31 @@ public class endToEndTestCases {
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='infoDetails']")).getText(), headLine);
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='infoDetails']")).getAttribute("class"), "headline");
 		
+		//verify validity of conversion rates 
+		String validity = driver.findElement(By.xpath("//*[@id='atDateAndRate']")).getText();
+		String interBankRate = driver.findElement(By.xpath("//*[@id='interbank_rates_input']")).getAttribute("value");
+		String expectedValidity = ipCurrency+"/"+opCurrency+" for the 24-hour period ending "+Util.getPreviousDate()+" 22:00 UTC @ +/- "+interBankRate;
+		
+		Assert.assertEquals(validity, expectedValidity);
+		
+		// verify Rate Details sub tag
+		String rateDetails = driver.findElement(By.xpath("//*[@id='bidAskSubtitle']")).getText();
+		String expectedRateDetails = ipCurrency+"/"+opCurrency+" for the 24-hour period ending";
+		String bidDate = driver.findElement(By.xpath("//*[@id='bidAskDate']")).getText();
+		String bidTime = driver.findElement(By.xpath("//*[@id='bidAskTime']")).getText();
+		
+		Assert.assertEquals(rateDetails, expectedRateDetails);
+		Assert.assertEquals(bidDate, Util.getPreviousDate());
+		Assert.assertEquals(bidTime, "22:00 UTC");
+		
+		// verify conversion rates tag lines
 		String sellingIP = driver.findElement(By.xpath("//*[@id='sellMyCurrency']")).getText();
 		String buyingOP = driver.findElement(By.xpath("//*[@id='buyMyCurrency']")).getText();
 		
 		float sellingMoney = Float.parseFloat(driver.findElement(By.xpath("//*[@id='quote_amount_input']")).getAttribute("value"));
 		String sellingTagLine = "Selling "+String.format("%.5f", sellingMoney)+" "+ipCurrency;
 		String buyingTagLine = "Buying "+String.format("%.5f", sellingMoney)+" "+ipCurrency;
-		
-		Assert.assertEquals(sellingIP, sellingTagLine);
-		Assert.assertEquals(buyingOP, buyingTagLine);
-		
+
 		String convertionGetMoney = driver.findElement(By.xpath("//*[@id='sellMyCurrencyGet']")).getText();
 		String conversionPayMoney = driver.findElement(By.xpath("//*[@id='buyMyCurrencyCost']")).getText();
 		
@@ -99,7 +115,8 @@ public class endToEndTestCases {
 		String amountGet = "you get "+String.format("%.5f", buyingMoney)+" "+opCurrency;
 		String amountPaying = "you pay "+String.format("%.5f", buyingAvgPay)+" "+opCurrency;
 		
-		
+		Assert.assertEquals(sellingIP, sellingTagLine);
+		Assert.assertEquals(buyingOP, buyingTagLine);
 		Assert.assertEquals(convertionGetMoney, amountGet);
 		Assert.assertEquals(conversionPayMoney, amountPaying);
 		

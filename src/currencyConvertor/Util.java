@@ -1,5 +1,9 @@
 package currencyConvertor;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,6 +13,8 @@ public class Util {
 
 	public static String baseUrl = "http://www.oanda.com/currency/converter/";
 	public static WebDriver driver = null;
+	private static Calendar cal = null;
+	private static DateFormat dateFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
 	
 	
 	// get url of currency converter 
@@ -45,6 +51,22 @@ public class Util {
 		
 	}
 	
+	// get current date
+	public static String getCurrentDate(){
+		
+		cal = Calendar.getInstance();
+		return dateFormat.format(cal.getTime());
+		
+	}
+
+	// get previous date
+	public static String getPreviousDate(){
+		
+		cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, -1);
+		return dateFormat.format(cal.getTime());
+		
+	}
 	
 	
 	

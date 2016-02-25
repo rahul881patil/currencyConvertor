@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="currencyConvertor.negativeTesting">
+      <class name="currencyConvertor.endToEndTestCases">
         <methods>
-          <include name="checkCurrencySelectorsForInvalidInput"/>
           <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="checkDatesAxisForChart"/>
         </methods>
-      </class> <!-- currencyConvertor.negativeTesting -->
+      </class> <!-- currencyConvertor.endToEndTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

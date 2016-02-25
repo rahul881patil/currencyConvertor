@@ -3,10 +3,10 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 
 import org.openqa.selenium.*;
 import org.testng.*;
@@ -25,12 +25,12 @@ public class endToEndTestCases {
 		driver = Util.getDriver("firefox");	
 	}	
 	
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public void verifyTitleName(){
 		AssertJUnit.assertEquals(driver.getTitle(), "Currency Converter | Foreign Exchange Rates | OANDA");
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void verifyUpperLeftPanel() throws InterruptedException{
 	
 		String flag = driver.findElement(By.xpath("//*[@id='quote_currency_flag']")).getAttribute("class");
@@ -45,7 +45,7 @@ public class endToEndTestCases {
 		
 	}
 	
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	public void verifyUpperRightPanel() throws InterruptedException{
 	
 		String flag = driver.findElement(By.xpath("//*[@id='base_currency_flag']")).getAttribute("class");
@@ -60,7 +60,7 @@ public class endToEndTestCases {
 		Assert.assertEquals(moneyAmount, conversionRate);
 	}
 	
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public void verifyUpperBottonPanel() {
 		String interBankRate = driver.findElement(By.xpath("//*[@id='interbank_rates_input']")).getAttribute("value");
 		String date = driver.findElement(By.xpath("//*[@id='end_date_input']")).getAttribute("value");
@@ -73,8 +73,8 @@ public class endToEndTestCases {
 		
 	}
 	
-	//@Test(priority = 5)
-	public void verifyLowerRateDetailPanel(){
+	@Test(priority = 5)
+	public void verifyLowerRateDetailPanel() throws ParseException{
 		// verify head line
 		String ipCurrency = Util.getQuotedCurrencyAbbrevation();
 		String opCurrency = Util.getBaseCurrencyAbbrevation();
@@ -122,13 +122,10 @@ public class endToEndTestCases {
 		Assert.assertEquals(conversionPayMoney, amountPaying);
 	}
 	
-	//@Test(priority = 6)
-	public void checkCurrencyChart(){
+	@Test(priority = 6)
+	public void checkCurrencyChart() throws ParseException{
 		
-		// verify todays date on chart
-			//WebElement currencyChart = driver.findElement(By.xpath("//*[@id='currency_chart_canvas']"));
-			//WebElement chartHeaderDate = currencyChart.findElement(By.className("flotr-mouse-value"));
-			//Assert.assertEquals(chartHeaderDate, Util.getCurrentDate("MMM dd, yyyy"));
+		// verify markers date on chart
 		
 		// verify Graph default condition 
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='range30']")).isSelected(), true);
@@ -147,7 +144,7 @@ public class endToEndTestCases {
 	}
 	
 	@Test(priority= 7)
-	public void checkCurrencySelectorFavorites(){
+	public void checkQuoteCurrencySelector(){
 		
 		// verify user should be able to select currency from both drop down	
 		
@@ -155,14 +152,22 @@ public class endToEndTestCases {
 		quoteCurrency.click();
 		List<WebElement> currencyQDropDown = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.className("ltr_list_item"));
 		currencyQDropDown.get(3).click();	
+	}
+	
+	
+	@Test(priority= 8)
+	public void checkBaseCurrencySelector(){
+		
+		// verify user should be able to select currency from both drop down	
 		
 		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
 		baseCurrency.click();
 		List<WebElement> currencyBDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.className("ltr_list_item"));
-		currencyBDropDown.get(9).click();
+		currencyBDropDown.get(3).click();
 	}
 	
-	@Test(priority = 8)
+	
+	@Test(priority = 9)
 	public void checkFlipperButton(){
 		
 		// verify that flip button is working as expected
@@ -175,6 +180,39 @@ public class endToEndTestCases {
 		Assert.assertEquals(Util.getQuotedCurrencyAbbrevation(), baseCurrency);
 		Assert.assertEquals(Util.getBaseCurrencyAbbrevation(), quoteCurrency);
 		
+	}
+	
+	//@Test(priority = 10)
+	public void checkDatesAxisForChart() throws ParseException{
+		
+		// verify that correct dates are displayed for chart when selected multiple option
+		int chartIntervalSize = 0, i = 0, days = 0, daysOption = 3;
+		
+		while(daysOption != 0){
+			// choose option of days 
+			if(daysOption == 3){
+				driver.findElement(By.xpath("//*[@id='range30']")).click();
+				days = 30;
+			}else if(daysOption == 2){
+				driver.findElement(By.xpath("//*[@id='range60']")).click();
+				days = 60;
+			}else{
+				driver.findElement(By.xpath("//*[@id='range90']")).click();
+				days = 90;
+			}	
+			
+			// verify the dates axis
+			List<WebElement> chartDates = driver.findElement(By.xpath("//*[@class='flotr-labels']")).findElements((By.className("flotr-grid-label")));
+			i = 0; chartIntervalSize = 0;
+			while(chartIntervalSize != 4){
+				System.out.println((chartDates.get(i).getText()).replace("\n", " ")+" "+Util.getPreviousDate(days));
+				Assert.assertEquals((chartDates.get(i).getText()).replace("\n", " "), Util.getPreviousDate(days));
+				days -= 10;
+				chartIntervalSize++;
+				i++;
+			} 
+			daysOption--;
+		}
 	}
 	
 	

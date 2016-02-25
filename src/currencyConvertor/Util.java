@@ -1,8 +1,10 @@
 package currencyConvertor;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -16,7 +18,6 @@ public class Util {
 
 	public static String baseUrl = "http://www.oanda.com/currency/converter/";
 	public static WebDriver driver = null;
-	private static Calendar cal = null;
 	private static DateFormat dateFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
 	
 	
@@ -55,29 +56,53 @@ public class Util {
 	
 	// get current date
 	public static String getCurrentDate(String format){
-		
-		cal = Calendar.getInstance();
+
 		if(format == "MMM dd, yyyy"){
 			DateFormat monthDate = new SimpleDateFormat(format);
-			return monthDate.format(cal.getTime());
+			return monthDate.format(Util.getCurrentAppDate());
 		}else{
-			return dateFormat.format(cal.getTime());
+			return dateFormat.format(Util.getCurrentAppDate());
 		}
+	}
+	
+	// get current web site Date
+	public static String getCurrentAppDate(){
+		return driver.findElement(By.xpath("//*[@id='end_date_input']")).getAttribute("value");
 	}
 
 	// get previous date
-	public static String getPreviousDate(){
+	public static String getPreviousDate() throws ParseException{
 		
-		cal = Calendar.getInstance();
+		String currentDate = getCurrentAppDate();
+		DateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
+		SimpleDateFormat day = new SimpleDateFormat("EEEE");
+		
+		Date myDate = dateFormat.parse(currentDate);
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(myDate);
+		String myday = day.format(Calendar.DAY_OF_WEEK);
+		String finalString = myday + ", "+ currentDate;
+		dateFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy");
+		myDate = dateFormat.parse(finalString);
 		cal.add(Calendar.DATE, -1);
+		
+		
 		return dateFormat.format(cal.getTime());
 	}
 	
 	// get previous date as per calculation with format e.g. "Feb 4"
-		public static String getPreviousDate(int days){
+		public static String getPreviousDate(int days) throws ParseException{
+			
 			DateFormat monthDate = new SimpleDateFormat("MMM d");
-			cal = Calendar.getInstance();
+			String currentDate = getCurrentAppDate();
+			Date myDate = monthDate.parse(currentDate);
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(myDate);
+
 			cal.add(Calendar.DATE, -days);
+
 			return monthDate.format(cal.getTime());
 		}
 		

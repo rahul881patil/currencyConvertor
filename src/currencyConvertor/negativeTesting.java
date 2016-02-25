@@ -12,11 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 public class negativeTesting {
 
-private static final boolean WebElement = false;
 public WebDriver driver = null;
 	
 	@BeforeTest

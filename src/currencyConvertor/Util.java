@@ -3,9 +3,11 @@ package currencyConvertor;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -79,15 +81,29 @@ public class Util {
 			return monthDate.format(cal.getTime());
 		}
 		
-	// get selected currency
-	public static String getSelectedCurrency(){
+	// get selected currency abbreviation
+	public static String getQuotedCurrencyAbbrevation(){
 		return driver.findElement(By.xpath("//*[@id='quote_currency_code']")).getText();	
 	}
 	
-	
 	// get output currency
-	public static String getOutputCurrency(){
+	public static String getBaseCurrencyAbbrevation(){
 		return driver.findElement(By.xpath("//*[@id='base_currency_code']")).getText();
+	}
+	
+	// getCurrency selector drop down list
+	public static WebElement getQutoteCurrencySelectorDropDown(){
+		WebElement quoteCurrency =  driver.findElement(By.xpath("//*[@id='quote_currency_selector']"));
+		quoteCurrency.click();
+		return quoteCurrency;
+	}
+	
+	// getCurrency selector drop down list
+	public static List<WebElement> getBaseCurrencySelectorDropDown(){
+		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
+		baseCurrency.click();
+		List<WebElement> currencyDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.className("ltr_list_item"));
+		return currencyDropDown;
 	}
 	
 	

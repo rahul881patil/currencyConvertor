@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
 import org.openqa.selenium.*;
 import org.testng.*;
 import org.testng.annotations.BeforeTest;
@@ -22,15 +23,14 @@ public class endToEndTestCases {
 	@BeforeTest
 	public void initializeBrowser(){
 		driver = Util.getDriver("firefox");	
-	}
+	}	
 	
-	
-	@Test(priority = 1)
+	//@Test(priority = 1)
 	public void verifyTitleName(){
 		AssertJUnit.assertEquals(driver.getTitle(), "Currency Converter | Foreign Exchange Rates | OANDA");
 	}
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void verifyUpperLeftPanel() throws InterruptedException{
 	
 		String flag = driver.findElement(By.xpath("//*[@id='quote_currency_flag']")).getAttribute("class");
@@ -45,7 +45,7 @@ public class endToEndTestCases {
 		
 	}
 	
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void verifyUpperRightPanel() throws InterruptedException{
 	
 		String flag = driver.findElement(By.xpath("//*[@id='base_currency_flag']")).getAttribute("class");
@@ -60,7 +60,7 @@ public class endToEndTestCases {
 		Assert.assertEquals(moneyAmount, conversionRate);
 	}
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void verifyUpperBottonPanel() {
 		String interBankRate = driver.findElement(By.xpath("//*[@id='interbank_rates_input']")).getAttribute("value");
 		String date = driver.findElement(By.xpath("//*[@id='end_date_input']")).getAttribute("value");
@@ -73,11 +73,11 @@ public class endToEndTestCases {
 		
 	}
 	
-	@Test(priority = 5)
+	//@Test(priority = 5)
 	public void verifyLowerRateDetailPanel(){
 		// verify head line
-		String ipCurrency = Util.getSelectedCurrency();
-		String opCurrency = Util.getOutputCurrency();
+		String ipCurrency = Util.getQuotedCurrencyAbbrevation();
+		String opCurrency = Util.getBaseCurrencyAbbrevation();
 		String headLine = ipCurrency+"/"+opCurrency+" Details";
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='infoDetails']")).getText(), headLine);
@@ -122,7 +122,7 @@ public class endToEndTestCases {
 		Assert.assertEquals(conversionPayMoney, amountPaying);
 	}
 	
-	@Test(priority = 6)
+	//@Test(priority = 6)
 	public void checkCurrencyChart(){
 		
 		// verify todays date on chart
@@ -146,8 +146,38 @@ public class endToEndTestCases {
 		}
 	}
 	
+	@Test(priority= 7)
+	public void checkCurrencySelectorFavorites(){
+		
+		// verify user should be able to select currency from both drop down	
+		
+		WebElement quoteCurrency =  driver.findElement(By.xpath("//*[@id='quote_currency_selector']"));
+		quoteCurrency.click();
+		List<WebElement> currencyQDropDown = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.className("ltr_list_item"));
+		currencyQDropDown.get(3).click();	
+		
+		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
+		baseCurrency.click();
+		List<WebElement> currencyBDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.className("ltr_list_item"));
+		currencyBDropDown.get(9).click();
+	}
 	
-
+	@Test(priority = 8)
+	public void checkFlipperButton(){
+		
+		// verify that flip button is working as expected
+		
+		String quoteCurrency = Util.getQuotedCurrencyAbbrevation();
+		String baseCurrency = Util.getBaseCurrencyAbbrevation();
+		
+		driver.findElement(By.xpath("//*[@id='flipper']")).click();
+		
+		Assert.assertEquals(Util.getQuotedCurrencyAbbrevation(), baseCurrency);
+		Assert.assertEquals(Util.getBaseCurrencyAbbrevation(), quoteCurrency);
+		
+	}
+	
+	
 	@AfterTest
 	public void closeBrowser(){
 		driver.close();

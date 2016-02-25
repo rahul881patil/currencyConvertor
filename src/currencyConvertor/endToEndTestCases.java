@@ -69,7 +69,7 @@ public class endToEndTestCases {
 		Date currentdt = new Date();
 		
 		Assert.assertEquals(interBankRate, "0%");
-		Assert.assertEquals(date, dateFormat.format(currentdt));
+		Assert.assertEquals(date, Util.getCurrentAppDate());
 		
 	}
 	

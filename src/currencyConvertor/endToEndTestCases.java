@@ -290,6 +290,35 @@ public class endToEndTestCases {
 		}
 	}
 	
+	@Test(priority= 14)
+	public void checkFavoriteQuoteCurrencySelectorAfterSelectingCuurency() throws InterruptedException{
+		
+		// verify user should be able to select currency from both drop down	
+		WebElement quoteCurrency =  driver.findElement(By.xpath("//*[@id='quote_currency_selector']"));
+		quoteCurrency.click();
+		List<WebElement> currencyQDropDown = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.className("ltr_list_item"));
+		currencyQDropDown.get(9).click();	
+		
+		List<WebElement> currencyCodes = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.xpath("//*[@class='code_right']"));
+
+		Assert.assertEquals(currencyCodes.get(0).getAttribute("innerHTML"), Util.getQuotedCurrencyAbbrevation());
+	}
+	
+	@Test(priority= 15)
+	public void checkFavoriteBaseCurrencySelectorAfterSelectingCuurency() throws InterruptedException{
+		
+		// verify user should be able to select currency from both drop down	
+		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
+		baseCurrency.click();
+		List<WebElement> currencyQDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.className("ltr_list_item"));
+		currencyQDropDown.get(9).click();	
+		
+		List<WebElement> currencyCodes = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.xpath("//*[@class='code_right']"));
+
+		Assert.assertEquals(currencyCodes.get(0).getAttribute("innerHTML"), Util.getQuotedCurrencyAbbrevation());
+	}
+	
+	
 	
 	@AfterTest
 	public void closeBrowser(){

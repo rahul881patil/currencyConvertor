@@ -145,5 +145,22 @@ public WebDriver driver = null;
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='date_forward']")).getAttribute("class"), "forward disabled");
 	}
 	
+	@Test(priority = 8)
+	public void checkAmountAfterFlipButton(){
+		
+		// verify that flip button is working as expected
+		
+				String quoteCurrency = Util.getQuotedCurrencyAbbrevation();
+				String baseCurrency = Util.getBaseCurrencyAbbrevation();
+				String moneyAmount = driver.findElement(By.xpath("//*[@id='quote_amount_input']")).getAttribute("value");
+				
+				
+				driver.findElement(By.xpath("//*[@id='flipper']")).click();
+				
+				AssertJUnit.assertEquals(Util.getQuotedCurrencyAbbrevation(), baseCurrency);
+				AssertJUnit.assertEquals(Util.getBaseCurrencyAbbrevation(), quoteCurrency);
+				AssertJUnit.assertEquals(driver.findElement(By.xpath("//*[@id='quote_amount_input']")).getAttribute("value"), moneyAmount);
+	}
+	
 	
 }

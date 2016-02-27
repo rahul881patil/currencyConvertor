@@ -29,8 +29,16 @@ public WebDriver driver = null;
 		Thread.sleep(100);
 		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
 		baseCurrency.click();
+		
 		List<WebElement> currencyBDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.className("ltr_list_item"));
-		currencyBDropDown.get(4).click();
+		currencyBDropDown.get(9).click();
+		System.out.println(Util.getBaseCurrencyAbbrevation());
+		baseCurrency.click();
+		System.out.println("FAV 1st : " + (baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.xpath("//*[@class='code_right']")).get(0).getAttribute("innerHTML")));
+		
+		
+		
+		
 	}
 	
 	
@@ -62,7 +70,7 @@ public WebDriver driver = null;
 		}
 	}
 	
-	@AfterTest
+	//@AfterTest
 	public void closeBrowser(){
 		driver.close();
 		System.exit(0);

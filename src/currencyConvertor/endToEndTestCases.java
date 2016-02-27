@@ -5,6 +5,7 @@ import org.testng.AssertJUnit;
 
 import java.text.ParseException;
 import java.util.List;
+
 import org.openqa.selenium.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -56,6 +57,35 @@ public class endToEndTestCases {
 		AssertJUnit.assertEquals(moneyAmount, conversionRate);
 	}
 	
+	@Test(priority = 4)
+	public void verifyDefaultFavoritesListInQuoteCurrencySelectorDropDown(){
+		
+		WebElement quoteCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
+		quoteCurrency.click();
+		
+		List<WebElement> currencyCodes = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.xpath("//*[@class='code_right']"));
+		String[] favCurrencyCodes = {"EUR", "USD", "GBP", "CAD", "AUD", };
+		
+		for(int i=0; i<5; i++){
+			Assert.assertEquals(currencyCodes.get(i).getAttribute("innerHTML"), favCurrencyCodes[i]);
+		}
+		
+	}
+	
+	@Test(priority = 4)
+	public void verifyDefaultFavoritesListInBaseCurrencySelectorDropDown(){
+		
+		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
+		baseCurrency.click();
+		
+		List<WebElement> currencyCodes = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.xpath("//*[@class='code_right']"));
+		String[] favCurrencyCodes = {"EUR", "USD", "GBP", "CAD", "AUD", };
+		
+		for(int i=0; i<5; i++){
+			Assert.assertEquals(currencyCodes.get(i).getAttribute("innerHTML"), favCurrencyCodes[i]);
+		}
+		
+	}
 	
 	@Test(priority = 4)
 	public void checkFlipperButton(){
@@ -220,7 +250,6 @@ public class endToEndTestCases {
 					currencyInfo = "";
 					currencyInfo += currencyNames.get(i).getAttribute("innerHTML")
 								 +" "+currencyCodes.get(i).getAttribute("innerHTML");
-					System.out.println(currencyInfo);
 					Assert.assertTrue(currencyInfo.toLowerCase().contains("eu"));
 				
 			}
@@ -228,7 +257,7 @@ public class endToEndTestCases {
 		}
 	}
 	
-	@Test(priority = 12)
+	//@Test(priority = 13)
 	public void checkDatesAxisForChart() throws ParseException{
 		
 		// verify that correct dates are displayed for chart when selected multiple option
@@ -262,7 +291,7 @@ public class endToEndTestCases {
 	}
 	
 	
-	@AfterTest
+	//@AfterTest
 	public void closeBrowser(){
 		driver.close();
 		System.exit(0);

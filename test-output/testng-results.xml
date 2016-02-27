@@ -1,71 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="11" passed="10">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14721" started-at="2016-02-26T22:45:44Z" finished-at="2016-02-26T22:45:59Z">
+  <suite name="Default suite" duration-ms="7394" started-at="2016-02-27T05:57:32Z" finished-at="2016-02-27T05:57:39Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14721" started-at="2016-02-26T22:45:44Z" finished-at="2016-02-26T22:45:59Z">
-      <class name="currencyConvertor.endToEndTestCases">
-        <test-method status="PASS" signature="initializeBrowser()[pri:0, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="initializeBrowser" is-config="true" duration-ms="5404" started-at="2016-02-26T17:45:44Z" finished-at="2016-02-26T17:45:50Z">
+    <test name="Default test" duration-ms="7394" started-at="2016-02-27T05:57:32Z" finished-at="2016-02-27T05:57:39Z">
+      <class name="currencyConvertor.testFile">
+        <test-method status="PASS" signature="initializeBrowser()[pri:0, instance:currencyConvertor.testFile@3f3afe78]" name="initializeBrowser" is-config="true" duration-ms="7098" started-at="2016-02-27T00:57:32Z" finished-at="2016-02-27T00:57:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method status="PASS" signature="verifyTitleName()[pri:1, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyTitleName" duration-ms="16" started-at="2016-02-26T17:45:50Z" finished-at="2016-02-26T17:45:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyTitleName -->
-        <test-method status="PASS" signature="verifyUpperLeftPanel()[pri:2, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyUpperLeftPanel" duration-ms="212" started-at="2016-02-26T17:45:50Z" finished-at="2016-02-26T17:45:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUpperLeftPanel -->
-        <test-method status="PASS" signature="verifyUpperRightPanel()[pri:3, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyUpperRightPanel" duration-ms="195" started-at="2016-02-26T17:45:50Z" finished-at="2016-02-26T17:45:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUpperRightPanel -->
-        <test-method status="PASS" signature="verifyUpperBottonPanel()[pri:4, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyUpperBottonPanel" duration-ms="141" started-at="2016-02-26T17:45:50Z" finished-at="2016-02-26T17:45:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUpperBottonPanel -->
-        <test-method status="PASS" signature="verifyLowerRateDetailPanel()[pri:5, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyLowerRateDetailPanel" duration-ms="699" started-at="2016-02-26T17:45:50Z" finished-at="2016-02-26T17:45:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLowerRateDetailPanel -->
-        <test-method status="PASS" signature="checkCurrencyChart()[pri:6, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkCurrencyChart" duration-ms="258" started-at="2016-02-26T17:45:51Z" finished-at="2016-02-26T17:45:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkCurrencyChart -->
-        <test-method status="PASS" signature="checkQuoteCurrencySelector()[pri:7, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkQuoteCurrencySelector" duration-ms="418" started-at="2016-02-26T17:45:51Z" finished-at="2016-02-26T17:45:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkQuoteCurrencySelector -->
-        <test-method status="PASS" signature="checkAutoCompleteQuoteCurrencySelector()[pri:8, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkAutoCompleteQuoteCurrencySelector" duration-ms="3788" started-at="2016-02-26T17:45:52Z" finished-at="2016-02-26T17:45:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkAutoCompleteQuoteCurrencySelector -->
-        <test-method status="PASS" signature="checkAutoCompleteBaseCurrencySelector()[pri:9, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkAutoCompleteBaseCurrencySelector" duration-ms="3076" started-at="2016-02-26T17:45:56Z" finished-at="2016-02-26T17:45:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkAutoCompleteBaseCurrencySelector -->
-        <test-method status="FAIL" signature="checkBaseCurrencySelector()[pri:10, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkBaseCurrencySelector" duration-ms="298" started-at="2016-02-26T17:45:59Z" finished-at="2016-02-26T17:45:59Z">
-          <exception class="org.openqa.selenium.ElementNotVisibleException">
+        <test-method status="FAIL" signature="checkBaseCurrencySelector()[pri:10, instance:currencyConvertor.testFile@3f3afe78]" name="checkBaseCurrencySelector" duration-ms="280" started-at="2016-02-27T00:57:39Z" finished-at="2016-02-27T00:57:39Z">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Element is not currently visible and so may not be interacted with
-Command duration or timeout: 7 milliseconds
+              <![CDATA[Element is not clickable at point (437, 32). Other element would receive the click: <span class="converter_right"></span>
+Command duration or timeout: 89 milliseconds
 Build info: version: '2.50.1', revision: 'd7fc91b', time: '2016-01-29 19:04:49'
 System info: host: 'Rahuls-MacBook-Pro.local', ip: '192.168.1.6', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.3', java.version: '1.8.0_65'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=44.0.2, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: eb2b680b-99bf-e040-95fb-a7adb30d1ad8]]>
+Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
-Command duration or timeout: 7 milliseconds
+              <![CDATA[org.openqa.selenium.WebDriverException: Element is not clickable at point (437, 32). Other element would receive the click: <span class="converter_right"></span>
+Command duration or timeout: 89 milliseconds
 Build info: version: '2.50.1', revision: 'd7fc91b', time: '2016-01-29 19:04:49'
 System info: host: 'Rahuls-MacBook-Pro.local', ip: '192.168.1.6', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.3', java.version: '1.8.0_65'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
 Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=44.0.2, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: eb2b680b-99bf-e040-95fb-a7adb30d1ad8
+Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -75,7 +39,7 @@ Session ID: eb2b680b-99bf-e040-95fb-a7adb30d1ad8
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at currencyConvertor.endToEndTestCases.checkBaseCurrencySelector(endToEndTestCases.java:215)
+	at currencyConvertor.testFile.checkBaseCurrencySelector(testFile.java:31)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -100,26 +64,13 @@ Session ID: eb2b680b-99bf-e040-95fb-a7adb30d1ad8
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-Caused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with
-Build info: version: '2.50.1', revision: 'd7fc91b', time: '2016-01-29 19:04:49'
-System info: host: 'Rahuls-MacBook-Pro.local', ip: '192.168.1.6', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.3', java.version: '1.8.0_65'
-Driver info: driver.version: unknown
-	at <anonymous class>.fxdriver.preconditions.visible(file:///var/folders/b_/7rsmqr316cd81r3ws3hs5_qc0000gn/T/anonymous4097392503181882940webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:10041)
-	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///var/folders/b_/7rsmqr316cd81r3ws3hs5_qc0000gn/T/anonymous4097392503181882940webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12578)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/b_/7rsmqr316cd81r3ws3hs5_qc0000gn/T/anonymous4097392503181882940webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12595)
-	at <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///var/folders/b_/7rsmqr316cd81r3ws3hs5_qc0000gn/T/anonymous4097392503181882940webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12600)
-	at <anonymous class>.DelayedCommand.prototype.execute/<(file:///var/folders/b_/7rsmqr316cd81r3ws3hs5_qc0000gn/T/anonymous4097392503181882940webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12542)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementNotVisibleException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkBaseCurrencySelector -->
-        <test-method status="PASS" signature="checkFlipperButton()[pri:11, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkFlipperButton" duration-ms="189" started-at="2016-02-26T17:45:59Z" finished-at="2016-02-26T17:45:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkFlipperButton -->
-      </class> <!-- currencyConvertor.endToEndTestCases -->
+      </class> <!-- currencyConvertor.testFile -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

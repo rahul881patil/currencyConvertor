@@ -6,8 +6,7 @@
       <class name="currencyConvertor.endToEndTestCases">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="closeBrowser"/>
-          <include name="checkDatesAxisForChart"/>
+          <include name="checkBaseCurrencySelector"/>
         </methods>
       </class> <!-- currencyConvertor.endToEndTestCases -->
     </classes>

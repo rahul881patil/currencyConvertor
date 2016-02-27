@@ -32,7 +32,7 @@ public class Util {
 		driver.get(baseUrl);
 	}
 	
-	// Initialize driver with chrome driver
+	// Initialize driver with chrom driver
 	public static void initChromeDriver(){
 		System.setProperty("webdriver.chrome.driver","/Users/Rahul/Documents/workspace/testing/seleniumWebdriver/src/seleniumWebdriver/chromedriver");
 		driver = new ChromeDriver();

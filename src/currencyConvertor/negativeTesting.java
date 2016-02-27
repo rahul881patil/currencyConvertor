@@ -3,6 +3,7 @@ package currencyConvertor;
 import static org.testng.AssertJUnit.assertTrue;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 
 import java.util.List;
@@ -36,10 +37,10 @@ public WebDriver driver = null;
 		WebElement quoteCurrency =  driver.findElement(By.xpath("//*[@id='quote_currency_selector']"));
 		quoteCurrency.click();
 		quoteCurrency.sendKeys("#");
-		List<WebElement> currencyQDropDown = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.className("ltr_list_item"));
+		List<WebElement> currencyQDropDown = quoteCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-1']")).findElements(By.xpath("//*[@class='left name']"));
 		int i=0;
 		while(i< currencyQDropDown.size()){
-			AssertJUnit.assertEquals("display: none;", currencyQDropDown.get(i).getAttribute("style"));
+			AssertJUnit.assertEquals(false, currencyQDropDown.get(i).isDisplayed());
 			i++;
 		}
 	}
@@ -51,16 +52,16 @@ public WebDriver driver = null;
 		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
 		baseCurrency.click();
 		baseCurrency.sendKeys("#");
-		List<WebElement> currencyBDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.className("ltr_list_item"));
+		List<WebElement> currencyBDropDown = baseCurrency.findElement(By.xpath("//*[@id='scroll-innerBox-2']")).findElements(By.xpath("//*[@class='left name']"));
 		int i=0;
 		while(i< currencyBDropDown.size()){
-			AssertJUnit.assertEquals("display: none;", currencyBDropDown.get(i).getAttribute("style"));
+			AssertJUnit.assertEquals(false, currencyBDropDown.get(i).isDisplayed());
 			i++;
 		}
 	}
 	
 	@Test(priority = 2)
-	public void checkAmountTextBoxForInvalidInput() throws InterruptedException{
+	public void checkAmountTextBoxForDecimalDigits() throws InterruptedException{
 			
 		WebElement  quoteCurrenyAmount= driver.findElement(By.xpath("//*[@id='quote_amount_input']"));
 
@@ -81,11 +82,68 @@ public WebDriver driver = null;
 	}
 	
 	@Test(priority = 3)
-	public void checkOnlyNumericValuesAccepted(){
+	public void checkAmountTextBoxForInvalidInput() throws InterruptedException{
+			
+		WebElement  quoteCurrenyAmount= driver.findElement(By.xpath("//*[@id='quote_amount_input']"));
+
+		// verify amount accepts only 5 or less digits after decimal point
+		quoteCurrenyAmount.sendKeys("scdcdc");
+		String[] sellingRateTag = driver.findElement(By.xpath("//*[@id='sellMyCurrency']")).getText().split(" ");
+		String[] buyingRateTag = driver.findElement(By.xpath("//*[@id='buyMyCurrency']")).getText().split(" ");
+	
+		AssertJUnit.assertEquals("-", driver.findElement(By.xpath("//*[@id='base_amount_input']")).getAttribute("value"));	
+		Assert.assertEquals(sellingRateTag[1], "-");
+		Assert.assertEquals(buyingRateTag[1], "-");
+		
+	}
+	
+	@Test(priority = 4)
+	public void checkAmountTextBoxForNegativeValues(){
 		
 		// only numeric value are accepted
-		driver.findElement(By.xpath("//*[@id='quote_amount_input']")).sendKeys("123dc");
-		AssertJUnit.assertEquals("-", driver.findElement(By.xpath("//*[@id='base_amount_input']")).getAttribute("value"));
+		driver.findElement(By.xpath("//*[@id='quote_amount_input']")).clear();
+		driver.findElement(By.xpath("//*[@id='quote_amount_input']")).sendKeys("-1");
+
+		AssertJUnit.assertEquals(driver.findElement(By.xpath("//*[@id='base_amount_input']")).getAttribute("value"), "-");
+
 	}
+	
+	@Test(priority = 5)
+	public void checkQuotedPreSelectedValue() throws InterruptedException{
+		
+		// verify currency remains same if user does not select any from drop down
+		String preSelectedCurrency = Util.getQuotedCurrencyAbbrevation();
+
+		WebElement quoteCurrency =  driver.findElement(By.xpath("//*[@id='quote_currency_selector']"));
+		quoteCurrency.click();
+		quoteCurrency.sendKeys("dqddc");
+		quoteCurrency.click();
+		
+		Assert.assertEquals(Util.getQuotedCurrencyAbbrevation(), preSelectedCurrency);
+		
+	}
+	
+	@Test(priority = 6)
+	public void checkBasePreSelectedValue() throws InterruptedException{
+		
+		// verify currency remains same if user does not select any from drop down
+		String preSelectedCurrency = Util.getBaseCurrencyAbbrevation();
+
+		WebElement baseCurrency =  driver.findElement(By.xpath("//*[@id='base_currency_selector']"));
+		baseCurrency.click();
+		baseCurrency.sendKeys("dqddc");
+		baseCurrency.click();
+		
+		Assert.assertEquals(Util.getBaseCurrencyAbbrevation(), preSelectedCurrency);
+		
+	}
+	
+	@Test(priority = 7)
+	public void checkTomorrowsDateFromDatePicker() throws InterruptedException{
+		
+		driver.findElement(By.xpath("//*[@id='date_control']"));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='date_forward']")).getAttribute("class"), "forward disabled");
+	}
+	
 	
 }

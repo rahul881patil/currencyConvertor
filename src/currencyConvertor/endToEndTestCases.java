@@ -257,7 +257,7 @@ public class endToEndTestCases {
 		}
 	}
 	
-	//@Test(priority = 13)
+	@Test(priority = 13)
 	public void checkDatesAxisForChart() throws ParseException{
 		
 		// verify that correct dates are displayed for chart when selected multiple option
@@ -291,7 +291,7 @@ public class endToEndTestCases {
 	}
 	
 	
-	//@AfterTest
+	@AfterTest
 	public void closeBrowser(){
 		driver.close();
 		System.exit(0);

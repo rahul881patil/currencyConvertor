@@ -1,45 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="1" total="14" passed="13">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7394" started-at="2016-02-27T05:57:32Z" finished-at="2016-02-27T05:57:39Z">
+  <suite name="Default suite" duration-ms="17723" started-at="2016-02-27T05:59:47Z" finished-at="2016-02-27T06:00:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7394" started-at="2016-02-27T05:57:32Z" finished-at="2016-02-27T05:57:39Z">
-      <class name="currencyConvertor.testFile">
-        <test-method status="PASS" signature="initializeBrowser()[pri:0, instance:currencyConvertor.testFile@3f3afe78]" name="initializeBrowser" is-config="true" duration-ms="7098" started-at="2016-02-27T00:57:32Z" finished-at="2016-02-27T00:57:39Z">
+    <test name="Default test" duration-ms="17723" started-at="2016-02-27T05:59:47Z" finished-at="2016-02-27T06:00:05Z">
+      <class name="currencyConvertor.endToEndTestCases">
+        <test-method status="PASS" signature="initializeBrowser()[pri:0, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="initializeBrowser" is-config="true" duration-ms="5977" started-at="2016-02-27T00:59:47Z" finished-at="2016-02-27T00:59:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method status="FAIL" signature="checkBaseCurrencySelector()[pri:10, instance:currencyConvertor.testFile@3f3afe78]" name="checkBaseCurrencySelector" duration-ms="280" started-at="2016-02-27T00:57:39Z" finished-at="2016-02-27T00:57:39Z">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method status="PASS" signature="verifyTitleName()[pri:1, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyTitleName" duration-ms="15" started-at="2016-02-27T00:59:53Z" finished-at="2016-02-27T00:59:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleName -->
+        <test-method status="PASS" signature="verifyDefaultQuoteCurrency()[pri:2, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyDefaultQuoteCurrency" duration-ms="199" started-at="2016-02-27T00:59:53Z" finished-at="2016-02-27T00:59:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDefaultQuoteCurrency -->
+        <test-method status="PASS" signature="verifyDefaultBaseCurrency()[pri:3, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyDefaultBaseCurrency" duration-ms="247" started-at="2016-02-27T00:59:54Z" finished-at="2016-02-27T00:59:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDefaultBaseCurrency -->
+        <test-method status="PASS" signature="checkFlipperButton()[pri:4, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkFlipperButton" duration-ms="475" started-at="2016-02-27T00:59:54Z" finished-at="2016-02-27T00:59:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkFlipperButton -->
+        <test-method status="PASS" signature="verifyDefaultFavoritesListInBaseCurrencySelectorDropDown()[pri:4, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyDefaultFavoritesListInBaseCurrencySelectorDropDown" duration-ms="486" started-at="2016-02-27T00:59:54Z" finished-at="2016-02-27T00:59:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDefaultFavoritesListInBaseCurrencySelectorDropDown -->
+        <test-method status="PASS" signature="verifyDefaultFavoritesListInQuoteCurrencySelectorDropDown()[pri:4, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyDefaultFavoritesListInQuoteCurrencySelectorDropDown" duration-ms="312" started-at="2016-02-27T00:59:55Z" finished-at="2016-02-27T00:59:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDefaultFavoritesListInQuoteCurrencySelectorDropDown -->
+        <test-method status="PASS" signature="verifyInterBankAndDefaultDate()[pri:5, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyInterBankAndDefaultDate" duration-ms="101" started-at="2016-02-27T00:59:55Z" finished-at="2016-02-27T00:59:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInterBankAndDefaultDate -->
+        <test-method status="PASS" signature="verifyRateDetailPanel()[pri:6, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="verifyRateDetailPanel" duration-ms="560" started-at="2016-02-27T00:59:55Z" finished-at="2016-02-27T00:59:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRateDetailPanel -->
+        <test-method status="PASS" signature="checkCurrencyChart()[pri:7, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkCurrencyChart" duration-ms="255" started-at="2016-02-27T00:59:56Z" finished-at="2016-02-27T00:59:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCurrencyChart -->
+        <test-method status="PASS" signature="checkQuoteCurrencySelector()[pri:8, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkQuoteCurrencySelector" duration-ms="371" started-at="2016-02-27T00:59:56Z" finished-at="2016-02-27T00:59:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkQuoteCurrencySelector -->
+        <test-method status="PASS" signature="checkBaseCurrencySelector()[pri:9, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkBaseCurrencySelector" duration-ms="402" started-at="2016-02-27T00:59:56Z" finished-at="2016-02-27T00:59:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBaseCurrencySelector -->
+        <test-method status="PASS" signature="checkAutoCompleteQuoteCurrencySelector()[pri:10, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkAutoCompleteQuoteCurrencySelector" duration-ms="3979" started-at="2016-02-27T00:59:57Z" finished-at="2016-02-27T01:00:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkAutoCompleteQuoteCurrencySelector -->
+        <test-method status="PASS" signature="checkAutoCompleteBaseCurrencySelector()[pri:11, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkAutoCompleteBaseCurrencySelector" duration-ms="3079" started-at="2016-02-27T01:00:01Z" finished-at="2016-02-27T01:00:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkAutoCompleteBaseCurrencySelector -->
+        <test-method status="FAIL" signature="checkDatesAxisForChart()[pri:13, instance:currencyConvertor.endToEndTestCases@7f63425a]" name="checkDatesAxisForChart" duration-ms="1238" started-at="2016-02-27T01:00:04Z" finished-at="2016-02-27T01:00:05Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Element is not clickable at point (437, 32). Other element would receive the click: <span class="converter_right"></span>
-Command duration or timeout: 89 milliseconds
-Build info: version: '2.50.1', revision: 'd7fc91b', time: '2016-01-29 19:04:49'
-System info: host: 'Rahuls-MacBook-Pro.local', ip: '192.168.1.6', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.3', java.version: '1.8.0_65'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=44.0.2, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877]]>
+              <![CDATA[expected:<Nov 30> but was:<Nov 29>]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: Element is not clickable at point (437, 32). Other element would receive the click: <span class="converter_right"></span>
-Command duration or timeout: 89 milliseconds
-Build info: version: '2.50.1', revision: 'd7fc91b', time: '2016-01-29 19:04:49'
-System info: host: 'Rahuls-MacBook-Pro.local', ip: '192.168.1.6', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.3', java.version: '1.8.0_65'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=44.0.2, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at currencyConvertor.testFile.checkBaseCurrencySelector(testFile.java:31)
+              <![CDATA[java.lang.AssertionError: expected:<Nov 30> but was:<Nov 29>
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:101)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:108)
+	at currencyConvertor.endToEndTestCases.checkDatesAxisForChart(endToEndTestCases.java:284)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -66,11 +99,11 @@ Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkBaseCurrencySelector -->
-      </class> <!-- currencyConvertor.testFile -->
+        </test-method> <!-- checkDatesAxisForChart -->
+      </class> <!-- currencyConvertor.endToEndTestCases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>13/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Feb 27 00:57:32 EST 2016</td>
+<td>Started on:</td><td>Sat Feb 27 00:59:47 EST 2016</td>
 </tr>
-<tr><td>Total time:</td><td>7 seconds (7394 ms)</td>
+<tr><td>Total time:</td><td>17 seconds (17723 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,24 +75,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='currencyConvertor.testFile.checkBaseCurrencySelector()'><b>checkBaseCurrencySelector</b><br>Test class: currencyConvertor.testFile</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: Element is not clickable at point (437, 32). Other element would receive the click: &lt;span class=&quot;converter_right&quot;&gt;&lt;/span&gt;
-Command duration or timeout: 89 milliseconds
-Build info: version: &apos;2.50.1&apos;, revision: &apos;d7fc91b&apos;, time: &apos;2016-01-29 19:04:49&apos;
-System info: host: &apos;Rahuls-MacBook-Pro.local&apos;, ip: &apos;192.168.1.6&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.3&apos;, java.version: &apos;1.8.0_65&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=44.0.2, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at currencyConvertor.testFile.checkBaseCurrencySelector(testFile.java:31)
+<td title='currencyConvertor.endToEndTestCases.checkDatesAxisForChart()'><b>checkDatesAxisForChart</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;Nov 30&gt; but was:&lt;Nov 29&gt;
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:101)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:108)
+	at currencyConvertor.endToEndTestCases.checkDatesAxisForChart(endToEndTestCases.java:284)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -117,24 +104,11 @@ Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-</pre></div><a href='#' onClick='toggleBox("stack-trace943573036", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace943573036'><pre>org.openqa.selenium.WebDriverException: Element is not clickable at point (437, 32). Other element would receive the click: &lt;span class=&quot;converter_right&quot;&gt;&lt;/span&gt;
-Command duration or timeout: 89 milliseconds
-Build info: version: &apos;2.50.1&apos;, revision: &apos;d7fc91b&apos;, time: &apos;2016-01-29 19:04:49&apos;
-System info: host: &apos;Rahuls-MacBook-Pro.local&apos;, ip: &apos;192.168.1.6&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.3&apos;, java.version: &apos;1.8.0_65&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=44.0.2, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
-	at currencyConvertor.testFile.checkBaseCurrencySelector(testFile.java:31)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1971783162", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1971783162'><pre>java.lang.AssertionError: expected:&lt;Nov 30&gt; but was:&lt;Nov 29&gt;
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:101)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:108)
+	at currencyConvertor.endToEndTestCases.checkDatesAxisForChart(endToEndTestCases.java:284)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -160,8 +134,81 @@ Session ID: 31e7abfc-7a5c-7c4f-b06a-dd15e78ce877
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 </pre></div></td>
+<td>1</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.checkAutoCompleteBaseCurrencySelector()'><b>checkAutoCompleteBaseCurrencySelector</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>3</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.checkAutoCompleteQuoteCurrencySelector()'><b>checkAutoCompleteQuoteCurrencySelector</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>3</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.checkBaseCurrencySelector()'><b>checkBaseCurrencySelector</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
 <td>0</td>
-<td>currencyConvertor.testFile@3f3afe78</td></tr>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.checkCurrencyChart()'><b>checkCurrencyChart</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.checkFlipperButton()'><b>checkFlipperButton</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.checkQuoteCurrencySelector()'><b>checkQuoteCurrencySelector</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyDefaultBaseCurrency()'><b>verifyDefaultBaseCurrency</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyDefaultFavoritesListInBaseCurrencySelectorDropDown()'><b>verifyDefaultFavoritesListInBaseCurrencySelectorDropDown</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyDefaultFavoritesListInQuoteCurrencySelectorDropDown()'><b>verifyDefaultFavoritesListInQuoteCurrencySelectorDropDown</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyDefaultQuoteCurrency()'><b>verifyDefaultQuoteCurrency</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyInterBankAndDefaultDate()'><b>verifyInterBankAndDefaultDate</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyRateDetailPanel()'><b>verifyRateDetailPanel</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
+<tr>
+<td title='currencyConvertor.endToEndTestCases.verifyTitleName()'><b>verifyTitleName</b><br>Test class: currencyConvertor.endToEndTestCases</td>
+<td></td>
+<td>0</td>
+<td>currencyConvertor.endToEndTestCases@7f63425a</td></tr>
 </table><p>
 </body>
 </html>

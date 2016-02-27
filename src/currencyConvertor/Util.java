@@ -1,5 +1,11 @@
 package currencyConvertor;
 
+/*
+ *  Author : Rahul Patil
+ *  Test Scripts : Currency conversion page
+ *   
+ */
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

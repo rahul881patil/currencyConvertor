@@ -1,5 +1,12 @@
 package currencyConvertor;
 
+
+/*
+ *  Author : Rahul Patil
+ *  Test Scripts : Currency conversion page
+ *   
+ */
+
 import static org.testng.AssertJUnit.assertTrue;
 
 import org.testng.annotations.Test;

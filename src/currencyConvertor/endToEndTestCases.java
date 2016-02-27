@@ -1,17 +1,19 @@
 package currencyConvertor;
+
+/*
+ *  Author : Rahul Patil
+ *  Test Scripts : Currency conversion page
+ *   
+ */
+
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
-
 import java.text.ParseException;
 import java.util.List;
-
 import org.openqa.selenium.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
-
-
-
 
 public class endToEndTestCases {
 	
